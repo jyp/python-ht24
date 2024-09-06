@@ -5,13 +5,15 @@ raise_percentage = 3
 
 print(gross)
 
-def actualise(amount, rate, from_year, to):
+def actualise(start_amount, rate, from_year, to):
+    amount = start_amount
     for year in range(from_year, to):
         amount = amount + (rate / 100) * amount
         print(year,amount)
     return amount
 
-print(actualise(20000, 3, 2024, 2034) )
+x = actualise(20000, 3, 2024, 2034)
+print(x)
 # print(gross - ((tax_rate_percentage / 100) * gross))
 
 # salary is 20000
