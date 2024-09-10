@@ -1,6 +1,7 @@
 # how old am I in number of days?
 # generalising
-# what is 
+
+# a date is a triple (y,m,d)
 
 def divisible_by(y,d):
     return y % d == 0
@@ -38,15 +39,17 @@ def days_in_month(m,y):
             return 29
         else:
             return 28
-    if m == 4 or m == 6 or m == 9 or m == 11:
+    if m in [4,6,9,11]:
         return 30
     else:
         return 31
 
-for m in range(1,13):
-    print(days_in_month(m,2024))
+# test:
+# for m in range(1,13):
+#     print(days_in_month(m,2024))
 
-def date_days(y1,m1,d1):
+def date_days(date):
+    (y1,m1,d1) = date
     # numbers of days since the epoch
     days = 0
     for y in range(1,y1):
@@ -56,12 +59,12 @@ def date_days(y1,m1,d1):
     days = days + m1
     return days
     
-def date_diff(y1, m1, d1, y2, m2, d2):
-    return date_days(y2,m2,d2) - date_days(y1,m1,d1)
+def date_diff(date1, date2):
+    return date_days(date2) - date_days(date1)
 
-def date_diff_approx(y1, m1, d1, y2, m2, d2):
-    # returns the number of days between two arbitrary dates
-    return (y2 - y1)*365.2422 + (m2 - m1) * 30.5 + (d2 - d1)
+# def date_diff_approx(y1, m1, d1, y2, m2, d2):
+#     # returns the number of days between two arbitrary dates
+#     return (y2 - y1)*365.2422 + (m2 - m1) * 30.5 + (d2 - d1)
 
-print(date_diff(1978,12,15, 2024,9,5))
+print(date_diff((1978,12,15), (2024,9,5)))
 
