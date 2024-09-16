@@ -1,8 +1,3 @@
-
-# d = {}
-# d["arsoitenars"].append("test")
-# print(d)
-
 f = open("terms.csv")
 lines = f.readlines()
 d = {}
